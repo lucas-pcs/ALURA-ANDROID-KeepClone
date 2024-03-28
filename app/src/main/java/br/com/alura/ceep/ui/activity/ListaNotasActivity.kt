@@ -12,14 +12,16 @@ import androidx.lifecycle.repeatOnLifecycle
 import br.com.alura.ceep.database.AppDatabase
 import br.com.alura.ceep.databinding.ActivityListaNotasBinding
 import br.com.alura.ceep.extensions.vaiPara
-import br.com.alura.ceep.model.Nota
 import br.com.alura.ceep.ui.recyclerview.adapter.ListaNotasAdapter
 import br.com.alura.ceep.webclient.RetrofitInicializador
 import br.com.alura.ceep.webclient.model.NotaResposta
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
+
 
 class ListaNotasActivity : AppCompatActivity() {
 
@@ -38,6 +40,7 @@ class ListaNotasActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraFab()
         configuraRecyclerView()
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 buscaNotas()
