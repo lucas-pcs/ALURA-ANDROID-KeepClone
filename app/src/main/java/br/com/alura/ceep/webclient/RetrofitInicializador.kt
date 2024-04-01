@@ -18,7 +18,8 @@ class RetrofitInicializador {
     }
 
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://10.225.8.98:9185/")
+        //.baseUrl("http://10.225.8.98:9185/")
+        .baseUrl("http://172.27.159.196:8080/")
         .addConverterFactory(MoshiConverterFactory.create())
         .client(client)
         .build()
